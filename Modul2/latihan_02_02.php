@@ -1,0 +1,33 @@
+<?php
+
+class Alumni
+{
+    protected $nama;
+    protected $tahunLulus;
+
+    public function __construct($nama, $tahunLulus)
+    {
+        $this->nama = $nama;
+        $this->tahunLulus = $tahunLulus;
+    }
+
+    public function getInfo()
+    {
+        return "Nama: $this->nama, Tahun Lulus: $this->tahunLulus\n";
+    }
+}
+
+class Admin extends Alumni
+{
+    public function updateTahunLulus($tahunBaru)
+    {
+        $this->tahunLulus = $tahunBaru;
+        return "Tahun lulus diperbarui menjadi: $this->tahunLulus\n";
+    }
+}
+
+$admin = new Admin("Irdan", 2015);
+echo $admin->getInfo();
+echo $admin->updateTahunLulus(2017);
+
+?>
